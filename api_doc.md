@@ -1,7 +1,8 @@
 # 接口文档 V1
 
-以下接口HOST： ``
-访问地址为：https://{host}/api/currency
+以下接口HOST： `www.9coin.com`
+访问地址为：https://{host}/{url}
+例：https://www.9coin.com/home/api/currency
 
 # 1 - 可用货币
 
