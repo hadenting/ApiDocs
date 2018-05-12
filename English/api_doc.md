@@ -1,20 +1,20 @@
-# 接口文档 V1
+# Interface documentation V1
 
-以下接口HOST： `www.9coin.com`
+Following interface HOST： `www.9coin.com`
 
-访问地址为：https://{host}/{url}
+Access address is：https://{host}/{url}
 
-例：https://www.9coin.com/home/api/currency
+Example：https://www.9coin.com/home/api/currency
 
-# 1 - 可用货币
+# 1 - Query all coins
 
-**请求URL：** 
+**Request URL：** 
 - ` /api/currency `
   
-**请求方式：**
+**Request Way：**
 - GET 
 
- **返回示例**
+ **Example**
 
 ``` 
 {
@@ -32,25 +32,25 @@
 }
 ```
 
- **返回参数说明** 
+ **Parameter Instructions** 
 
-|参数名|类型|说明|
+|Parameter Name |Type|Instructions|
 |:-----  |:-----|-----                           |
-|currency_id |int   |货币ID  |
-|currency_mark |int   |货币名称  |
+|currency_id |string   |currency ID  |
+|currency_mark |string   |currency Name  |
 
 
     
 
-# 2 - 可用交易对
+# 2 - Query all exchange pairs
 
-**请求URL：** 
+**Request URL：** 
 - ` /api/cy_mark_list `
   
-**请求方式：**
+**Request Way：**
 - GET 
 
- **返回示例**
+ **Example**
 
 ``` 
 {
@@ -71,26 +71,25 @@
     ]
 }
 ```
+ **Parameter Instructions** 
 
- **返回参数说明** 
-
-|参数名|类型|说明|
+|Parameter Name |Type|Instructions|
 |:-----  |:-----|-----                           |
-|cy_id |int   |交易对ID  |
-|cy_mark |int   |交易对名称  |
+|cy_id |string   |unique identification of each exchange pair |
+|cy_mark |string   |unique identification of each exchange pair  |
 
 
 
     
-# 3 - 最新行情
+# 3 - Query real time quotes
 
-**请求URL：** 
+**Request URL：** 
 - ` /api/tickers `
   
-**请求方式：**
+**Request Way：**
 - GET
  
- **返回示例**
+ **Example**
 
 ``` 
 {
@@ -109,37 +108,37 @@
 }
 ```
 
- **返回参数说明** 
+ **Parameter Instructions** 
 
-|参数名|类型|说明|
-|:-----  |:-----|-----                           |
-|cy_mark |int   |交易对名称  |
-|buy_one_price |int   |买一价格  |
-|sell_one_price |int   |卖一价格  |
-|new_price |int   |最新价格  |
-|24H_max_price |int   |24小时最高价  |
-|24H_min_price |int   |24小时最低价  |
-|24H_done_money |int   |24小时交易量  |
+|Parameter Name |Type|Instructions|
+|:-----  |:-----|-----|
+|cy_mark |string   |Name  |
+|buy_one_price |string   |Buy One Price  |
+|sell_one_price |string   |Sell One Price   |
+|new_price |string   |New Price  |
+|24H_max_price |string   |highest price (24h)  |
+|24H_min_price |string   |lowest price (24h)  |
+|24H_done_money |string   |total exchange amount (24h)  |
 
 
  
 
-# 4 - 市场深度，买盘（返回40条数据）
+# 4 - Query buy orders quotes（40 Number）
 
-**请求URL：** 
+**Request URL：** 
 - ` /api/buy `
   
-**请求方式：**
+**Request Way：**
 - POST 
 
-**参数：** 
+ **Parameter** 
 
-|参数名|必选|类型|说明|
+|Parameter Name |Required|Type|Instructions|
 |:----    |:---|:----- |-----   |
-|cy_id |是  |string | 交易对ID  |
+|cy_id |yes  |string |   |
 
 
- **返回示例**
+ **Example** 
 
 ``` 
   {
@@ -165,30 +164,30 @@
 }
 ```
 
- **返回参数说明** 
+ **Parameter Instructions** 
 
-|参数名|类型|说明|
+|Parameter Name |Type|Instructions|
 |:-----  |:-----|-----                           |
-|wtlnum |float   | 数量 |
-|price |float   |价格  |
+|wtlnum |float   | number |
+|price |float   |price  |
 
 
-# 5 - 市场深度，卖盘（返回40条数据）
+# 5 - Query sell orders quotes（40 Number）
 
-**请求URL：** 
+**Request URL：** 
 - ` /api/sell `
   
-**请求方式：**
+**Request Way：**
 - POST 
 
-**参数：** 
+ **Parameter ** 
 
-|参数名|必选|类型|说明|
+|Parameter Name |Required|Type|Instructions|
 |:----    |:---|:----- |-----   |
-|cy_id |是  |string | 交易对ID  |
+|cy_id |yes  |string |   |
 
 
- **返回示例**
+ **Example**
 
 ``` 
   {
@@ -214,29 +213,29 @@
 }
 ```
 
- **返回参数说明** 
+ **Parameter Instructions** 
 
-|参数名|类型|说明|
+|Parameter Name |Type|Instructions|
 |:-----  |:-----|-----                           |
-|wtlnum |float   | 数量 |
-|price |float   |价格  |
+|wtlnum |float   | number |
+|price |float   |price  |
 
 
-# 6 - 最近市场交易(返回80条数据)
+# 6 - Query near orders quotes（80 Number）
 
-**请求URL：** 
+**Request URL：** 
 - ` /api/orders `
   
-**请求方式：**
+**Request Way：**
 - POST 
 
-**参数：** 
+ **Parameter** 
 
-|参数名|必选|类型|说明|
+|Parameter Name |Required|Type|Instructions|
 |:----    |:---|:----- |-----   |
 |cy_id |是  |string |交易对ID   |
 
- **返回示例**
+ **Example** 
 
 ``` 
 {
@@ -260,12 +259,12 @@
 }
 ```
 
- **返回参数说明** 
+ **Parameter Instructions** 
 
-|参数名|类型|说明|
+|Parameter Name |Type|Instructions|
 |:-----  |:-----|-----                           |
-|trade_no |string   |交易编号  |
-|num |float   |数量  |
-|price |float   |价格  |
-|add_time |time   |交易时间  |
+|trade_no |string   |trade no  |
+|num |float   |number  |
+|price |float   |price  |
+|add_time |time   |trade time  |
 
